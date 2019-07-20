@@ -27,13 +27,14 @@
 					<th>Preco</th>
 				</tr>
 				<tr ng-class="{selecionado: veiculo.selecionado}" ng-repeat="veiculo in veiculos | filter:{placa: buscaVeiculos} | orderBy: 'placa'">
+					<!--  -->
 					<td><input type="checkbox" ng-model="veiculo.selecionado"/></td>
-					<td>{{veiculo.placa}}</td>
-					<td>{{veiculo.ano | date: 'yyyy'}}</td>
+					<td>{{veiculo.placa }}</td>
+					<td>{{veiculo.ano  | date: 'yyyy' }}</td> <!-- -->
 					<td>{{veiculo.chassi}}</td>
-					<td>{{veiculo.dataCadastro | date: 'dd/MM/yyyy'}}</td>
-					<td>{{veiculo.modelo}}</td>
-					<td>{{veiculo.preco  | currency}}</td>
+					<td>{{veiculo.dataCadastro | date: 'dd/MM/yyyy' }}</td> <!-- | date: 'dd/MM/yyyy'} -->
+					<td>{{veiculo.modelo }}</td>
+					<td>{{veiculo.preco | currency }}</td> <!--   -->
 				</tr>
 			</table>
 			<hr/>
@@ -44,8 +45,8 @@
 				<input class="form-control" type="date" ng-model="veiculo.dataCadastro" placeholder="Data"/>
 				<input class="form-control" type="text" ng-model="veiculo.modelo" placeholder="Modelo"/>
 				<input class="form-control" type="number" ng-model="veiculo.preco" placeholder="Preço"/>
-				<button class="btn btn-primary" ng-click="adicionarVeiculos(veiculo)" ng-disabled="!veiculo.placa || !veiculo.ano || !veiculo.chassi || !veiculo.dataCadastro || !veiculo.modelo || !veiculo.preco">Adicionar Veiculos</button>
-				<button class="btn btn-danger" ng-click="apagarVeiculos(veiculos)" ng-disabled="!isVeiculoSelecionado(veiculos)" >Apagar Veiculos</button>
+				<button class="btn btn-primary" ng-click="adicionarVeiculos(veiculo)" ng-disabled="!veiculo.placa || !veiculo.ano || !veiculo.chassi || !veiculo.dataCadastro || !veiculo.modelo || !veiculo.preco">Adicionar Veiculos</button> <!--  -->
+				<button class="btn btn-danger" ng-click="apagarVeiculos(veiculos)" ng-disabled="!isVeiculoSelecionado(veiculos)" >Apagar Veiculos</button> <!--  -->
 			</form>
 
 			<div ng-messages="veiculosForm.placa.$error">
@@ -118,6 +119,6 @@
 			<button class="btn btn-danger" ng-click="apagarFuncionario(funcionarios)" ng-disabled="!isFuncionarioSelecionado(funcionarios)" >Apagar Funcionario</button>
 		</div>
 	</div>
-	<div ng-include="'view/footer.html'">por John Pereira</div>
+	<!-- <div ng-include="'view/footer.html'">por John Pereira</div> -->
 </body>
 </html>

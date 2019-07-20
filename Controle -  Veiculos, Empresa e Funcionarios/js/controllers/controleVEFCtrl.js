@@ -1,17 +1,32 @@
 angular.module("controleVEF").controller("controleVEFCtrl", 
-			function ($scope) {
+			function ($scope, $http) {
 				$scope.app1 = "Veiculos";
 				$scope.app2 = "Empresas";
 				$scope.app3 = "Funcionarios";
 
+				/* Controle Veiculos */
+				$scope.veiculos = [];
 
-				$scope.veiculos = [
-					{placa: "MPQ-1622", ano: new Date(), chassi: "52293448763", dataCadastro: "05/07/2019", modelo: "Engesa 4.0 Diesel", preco: 22000},
-					{placa: "MYX-1042", ano: new Date(), chassi: "88570140289", dataCadastro: "05/07/2019", modelo: "Buggy  1.6 8V 58cv", preco: 22000}
-				];
+				var carregarVeiculos = function ( ) {
+					$http.get("http://localhost:3412/veiculos").then(function (response){
+						$scope.veiculos = response.data;
+					}).catch(function(response){
+						console.error('Erro veiculos', response.status, response.data);
+					}).finally(function(){
+						console.log("Veiculos OK");
+					});
+				};
+ 
 				$scope.adicionarVeiculos = function ( veiculo ) {
-					$scope.veiculos.push(angular.copy(veiculo));
-					delete $scope.veiculo;
+
+					$http.post("http://localhost:3412/veiculos", veiculo).then(function (response){
+						delete $scope.veiculo;
+						carregarVeiculos();
+					}).catch(function(response){
+						console.error('Erro ao adicionar veiculos', response.status, response.data);
+					}).finally(function(){
+						console.log("Veiculos Adicionado");
+					});
 				}; 
 				$scope.apagarVeiculos = function (veiculos){
 					$scope.veiculos = veiculos.filter(function(veiculo){
@@ -24,14 +39,28 @@ angular.module("controleVEF").controller("controleVEFCtrl",
 					});
 				};
 
+				/* Controle Empresas */
+				$scope.empresas = [];
 
-				$scope.empresas = [
-					{razaoSocial: "Sorveteria Arco Iris", cnpj: "29.166.295/0001-52", inscricaoEstadual: "52293448763", dataAbertura: "20/07/2019", estado: "MG", cidade: "Ipatinga", telefone: "3822-5015"},
-					{razaoSocial: "JD Contabilidade", cnpj: "31.771.465/0001-70", inscricaoEstadual: "88570140289", dataAbertura: "20/07/2019", estado: "MG", cidade: "Ipatinga", telefone: "3822-5015"}
-				];
+				var carregarEmpresas = function ( ) {
+					$http.get("http://localhost:3412/empresas").then(function (response){
+						$scope.empresas = response.data;
+					}).catch(function(response){
+						console.error('Erro empresas', response.status, response.data);
+					}).finally(function(){
+						console.log("Empresas OK");
+					});
+				};
+
 				$scope.adicionarEmpresas = function ( empresa ) {
-					$scope.empresas.push(angular.copy(empresa));
-					delete $scope.empresa;
+					$http.post("http://localhost:3412/empresas", empresa).then(function (response){
+						delete $scope.empresa;
+						carregarEmpresas();
+					}).catch(function(response){
+						console.error('Erro ao adicionar empresas', response.status, response.data);
+					}).finally(function(){
+						console.log("Empresa adiconado");
+					});
 				};
 				$scope.apagarEmpresas = function (empresas){
 					$scope.empresas = empresas.filter(function(empresa){
@@ -44,16 +73,28 @@ angular.module("controleVEF").controller("controleVEFCtrl",
 					});
 				}; 
 
+				/* Controle Funcionarios */
+				$scope.funcionarios = [];
 
-				$scope.funcionarios = [
-					{nome: "John", cpf: "109.069.256-06", dataNascimento: "20/07/1990", login: "jon", senha: "123456"},
-					{nome: "Ana", cpf: "696.555.522-22", dataNascimento: "21/01/1999", login: "ana", senha: "123345555"},
-					{nome: "Carlos", cpf: "788.888.576-66", dataNascimento: "11/08/1985", login: "car", senha: "sdasd"},
-					{nome: "Bruna", cpf: "112.212.346-99", dataNascimento: "22/11/1979", login: "brun", senha: "123qwewq456"}
-				];
+				var carregarFuncionarios = function ( ) {
+					$http.get("http://localhost:3412/funcionarios").then(function (response){
+						$scope.funcionarios = response.data;
+					}).catch(function(response){
+						console.error('Erro funcionarios', response.status, response.data);
+					}).finally(function(){
+						console.log("Funcionarios OK");
+					});
+				};
+
 				$scope.adicionarFuncionario = function ( funcionario ) {
-					$scope.funcionarios.push(angular.copy(funcionario));
-					delete $scope.funcionario;
+					$http.post("http://localhost:3412/funcionarios", funcionario).then(function (response){
+						delete $scope.funcionario;
+						carregarFuncionarios();
+					}).catch(function(response){
+						console.error('Erro ao adicionar funcionarios', response.status, response.data);
+					}).finally(function(){
+						console.log("Funcionario adicionado");
+					});
 				};
 				$scope.apagarFuncionario = function ( funcionarios ){
 					$scope.funcionarios = funcionarios.filter(function(funcionario){
@@ -71,4 +112,7 @@ angular.module("controleVEF").controller("controleVEFCtrl",
 					$scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
 				};
 
+				carregarVeiculos();
+				carregarEmpresas();
+				carregarFuncionarios();
 			});
