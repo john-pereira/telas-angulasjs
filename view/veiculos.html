@@ -1,0 +1,34 @@
+<div class="jumbotron">
+	<h4>{{app1}}</h4>
+	<input class="form-control" type="text" ng-model="buscaVeiculos" placeholder="Digite a placa para pesquisar...">
+	<table class="table">
+		<tr>
+			<th></th>
+			<th>Placa</th>
+			<th>Ano</th>
+			<th>Chassi</th>
+			<th>Data Cadastro</th>
+			<th>Modelo</th>
+			<th>Preco</th>
+		</tr>
+		<tr ng-class="{selecionado: veiculo.selecionado}" ng-repeat="veiculo in veiculos | filter:{placa: buscaVeiculos} | orderBy: 'placa'">
+			<!--  -->
+			<td><input type="checkbox" ng-model="veiculo.selecionado"/></td>
+			<td>{{veiculo.placa }}</td>
+			<td>{{veiculo.ano  | date: 'yyyy' }}</td> <!-- -->
+			<td>{{veiculo.chassi}}</td>
+			<td>{{veiculo.dataCadastro | date: 'dd/MM/yyyy' }}</td> <!-- | date: 'dd/MM/yyyy'} -->
+			<td>{{veiculo.modelo }}</td>
+			<td>{{veiculo.preco | currency }}</td> <!--   -->
+		</tr>
+	</table>
+	<hr/>
+	<form name="veiculosForm">
+		<a class="btn btn-primary" href="#/addVeiculos">Novo Veiculo</a>
+		<button class="btn btn-danger" ng-click="apagarVeiculos(veiculos)" ng-disabled="!isVeiculoSelecionado(veiculos)" >Apagar Veiculos</button> <!--  -->
+	</form>
+
+	<div ng-messages="veiculosForm.placa.$error">
+		
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<form name="veiculosForm">
+	<input class="form-control" type="text" ng-model="veiculo.placa" name="placa" placeholder="Digite a placa no formato AAA-9999" ui-placa />
+	<input class="form-control" type="text" ng-model="veiculo.ano" placeholder="Ano"/>
+	<input class="form-control" type="number" ng-model="veiculo.chassi" placeholder="Chassi"/>
+	<input class="form-control" type="text" ng-model="veiculo.dataCadastro" placeholder="Data" ui-date/>
+	<input class="form-control" type="text" ng-model="veiculo.modelo" placeholder="Modelo"/>
+	<input class="form-control" type="number" ng-model="veiculo.preco" placeholder="Preço"/>
+	<button class="btn btn-primary" ng-click="adicionarVeiculos(veiculo)" ng-disabled="!veiculo.placa || !veiculo.ano || !veiculo.chassi || !veiculo.dataCadastro || !veiculo.modelo || !veiculo.preco">Adicionar Veiculos</button> <!--  -->
+</form>
+
+<div ng-messages="veiculosForm.placa.$error">
+	
+</div>
