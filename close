@@ -1,0 +1,53 @@
+[33mcommit 8b0c27df91f758ede1e78e84dca1504da009a41b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Thu Aug 15 22:36:01 2019 -0300
+
+    Removendo arquivos e pastas incorretas
+
+[33mcommit 5c60dc0a748238edcfdead3c9f12630e3aadc959[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Thu Aug 15 22:30:47 2019 -0300
+
+    Controle de Veiculos, Empresas, Funcionarios 1.0
+
+[33mcommit a93ad011ccb6275ee91f4fffcb366fab4eeadab2[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Fri Jul 19 21:48:11 2019 -0300
+
+    InteIntegrando com Node JS no backend
+
+[33mcommit 8e17c41695a92d12f1fc273ef15d444b9e280596[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Tue Jul 9 20:46:58 2019 -0300
+
+    Usando filter - uppercase, lowercase, filter, currency, date, limitTo, orderBy - Organizando Projeto.
+
+[33mcommit 1af32bec1ae4699f82bb6f171fd532aa52e83efa[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Sun Jul 7 19:19:32 2019 -0300
+
+    Usando filter - uppercase, lowercase, filter, currency, date, limitTo, orderBy.
+
+[33mcommit adcacba40e2426e833ad51c8ab76943da269ec36[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Thu Jul 4 21:06:19 2019 -0300
+
+    Commit usando DIRETIVAS .ng-app, ng-controller, ng-repeat, ng-model, ng-click, ng-disabled, ng-options, ng-class, ng-style, ng-show
+
+[33mcommit cc558235a37f99a2d74357cac0aa078cd511e79c[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Wed Jul 3 21:39:04 2019 -0300
+
+    Commit inicial usando DIRETIVAS.
+
+[33mcommit 2ee50c97698cb573200fd5ea5175d01d475f16a8[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Wed Jul 3 19:39:14 2019 -0300
+
+    Commit inicial das primeiras telas em angular.
+
+[33mcommit 5c26d73288c0e0a79b3fdc77fc79d3553dc25da6[m
+Author: John Pereira <johnev90@gmail.com>
+Date:   Mon Jul 1 20:52:56 2019 -0300
+
+    Initial commit
